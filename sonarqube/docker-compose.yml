@@ -1,0 +1,63 @@
+# version: "3.8"
+
+# services:
+#   sonarqube:
+#     image: sonarqube:latest
+#     environment:
+#       SONAR_JDBC_URL: jdbc:postgresql://localhost:9081/sonar
+#       SONAR_JDBC_USERNAME: root
+#       SONAR_JDBC_PASSWORD: root
+#     volumes:
+#       - sonarqube_data:/opt/sonarqube/data
+#       - sonarqube_extensions:/opt/sonarqube/extensions
+#       - sonarqube_logs:/opt/sonarqube/logs
+#     ports:
+#       - "9000:9000"
+
+# volumes:
+#   sonarqube_data:
+#   sonarqube_extensions:
+#   sonarqube_logs:
+
+version: '3.8'
+services:
+  # psql-free:
+  #   image: postgres
+  #   container_name: "sonar-psql-free"
+  #   restart: always
+  #   networks:
+  #     - sonarnet-free
+  #   environment:
+  #     - POSTGRES_USER=sonar
+  #     - POSTGRES_PASSWORD=Neverdown001
+  #   volumes:
+  #     - sonarqube-postgresql-free:/var/lib/postgresql
+  #     - sonarqube-postgresql_data-free:/var/lib/postgresql/data
+  #   ports:
+  #     - "3310:3306"    
+  sonarqube-free:
+    image: sonarqube
+    privileged: true
+    container_name: "sonar-web-free"
+    restart: always
+    # networks:
+    #   - sonarnet-free
+    environment:
+      - SONARQUBE_JDBC_USERNAME=root
+      - SONARQUBE_JDBC_PASSWORD=root  
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://localhost:9081/sonar  
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonarqube-conf-free:/opt/sonarqube/conf
+      - sonarqube-data-free:/opt/sonarqube/data
+      - sonarqube-extensions-free:/opt/sonarqube/extensions   
+# networks:
+#   sonarnet-free:
+#     driver: bridge
+volumes:
+   sonarqube-conf-free:
+   sonarqube-data-free:
+   sonarqube-extensions-free:                          
+  #  sonarqube-postgresql-free:
+  #  sonarqube-postgresql_data-free:     
