@@ -44,20 +44,27 @@ services:
     #   - sonarnet-free
     environment:
       - SONARQUBE_JDBC_USERNAME=root
-      - SONARQUBE_JDBC_PASSWORD=root  
-      - SONARQUBE_JDBC_URL=jdbc:postgresql://localhost:9081/sonar  
+      - SONARQUBE_JDBC_PASSWORD=root
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://localhost:9081/sonar
+      # - SONARQUBE_JDBC_URL=jdbc:postgresql://host.docker.internal:9081/sonar
     ports:
       - "9000:9000"
     volumes:
       - sonarqube-conf-free:/opt/sonarqube/conf
       - sonarqube-data-free:/opt/sonarqube/data
-      - sonarqube-extensions-free:/opt/sonarqube/extensions   
+      - sonarqube-extensions-free:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
 # networks:
 #   sonarnet-free:
 #     driver: bridge
 volumes:
-   sonarqube-conf-free:
-   sonarqube-data-free:
-   sonarqube-extensions-free:                          
-  #  sonarqube-postgresql-free:
-  #  sonarqube-postgresql_data-free:     
+  sonarqube-conf-free:
+  sonarqube-data-free:
+  sonarqube-extensions-free:
+  sonarqube_logs:
+    #  sonarqube-postgresql-free:
+    #  sonarqube-postgresql_data-free:     
+
+
+
+
