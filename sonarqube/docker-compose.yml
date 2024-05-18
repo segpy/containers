@@ -64,7 +64,3 @@ volumes:
   sonarqube_logs:
     #  sonarqube-postgresql-free:
     #  sonarqube-postgresql_data-free: 
-
-
-
-
