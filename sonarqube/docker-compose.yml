@@ -65,8 +65,6 @@ volumes:
     #  sonarqube-postgresql-free:
     #  sonarqube-postgresql_data-free: 
 
-    # Test add a commit
-
 
 
 
