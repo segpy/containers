@@ -36,7 +36,7 @@ services:
   #   ports:
   #     - "3310:3306"    
   sonarqube-free:
-    image: sonarqube
+    image: sonarqube:9.9-community
     privileged: true
     container_name: "sonar-web-free"
     restart: always
