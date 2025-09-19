@@ -43,9 +43,9 @@ services:
     # networks:
     #   - sonarnet-free
     environment:
-      - SONARQUBE_JDBC_USERNAME=root
-      - SONARQUBE_JDBC_PASSWORD=root
-      - SONARQUBE_JDBC_URL=jdbc:postgresql://localhost:9081/sonar
+      - SONARQUBE_JDBC_USERNAME=${DATABASE_USER}
+      - SONARQUBE_JDBC_PASSWORD=${DATABASE_PASSWORD}
+      - SONARQUBE_JDBC_URL=${DATABASE_URL}
       # - SONARQUBE_JDBC_URL=jdbc:postgresql://host.docker.internal:9081/sonar
     ports:
       - "9000:9000"
